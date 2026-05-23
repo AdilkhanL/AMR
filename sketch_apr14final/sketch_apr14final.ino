@@ -11,7 +11,7 @@ WebServer server(80);
 #define INB 27
 #define INC 26
 #define IND 25
-#define ENA_PIN 32    // ← ты поменял местами ENA и ENB
+#define ENA_PIN 32    // я поменял местами ENA и ENB
 #define ENB_PIN 33
 
 // ================= Line Sensor Pins =================
@@ -24,7 +24,7 @@ const int PWM_RES  = 8;
 // ================= Speed =================
 uint8_t manualSpeed = 230;
 uint8_t autoSpeed   = 220;   // для Obstacle и Follow
-uint8_t lineSpeed   = 175;   // отдельная скорость для линии (рекомендую)
+uint8_t lineSpeed   = 175;   // отдельная скорость для линии
 uint8_t lineSpeedTurn   = 254;
 
 // ================= Ultrasonic =================
@@ -167,11 +167,13 @@ void handleLineFollower() {
   Serial.print(s1); Serial.print(s2); Serial.print(s3); 
   Serial.print(s4); Serial.print(s5);
 
+
+
   if(s1 == 1 && s2 == 1 && s3 == 1 && s4 == 1 && s5 == 1) {
     Serial.println(" → НАЗАД");
 
     driveBackward(210);
-    delay(80);   // ← регулируй (80–200 мс)
+    delay(80);
 
     driveStop();
   }
